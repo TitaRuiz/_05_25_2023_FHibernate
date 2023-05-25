@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "empleados")
-public class Empleados {
+public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEmpleado;
@@ -27,4 +27,9 @@ public class Empleados {
             foreignKey = @ForeignKey(name="fk_empleados_departamentos"))
     private Departamento d;
 
+    public Empleado(String nombreEmpleado, LocalDate fContratacion, LocalDate fNacimiento) {
+        this.nombreEmpleado = nombreEmpleado;
+        this.fContratacion = fContratacion;
+        this.fNacimiento = fNacimiento;
+    }
 }
